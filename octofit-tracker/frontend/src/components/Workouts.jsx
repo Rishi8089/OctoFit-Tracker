@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import { fetchApi } from '../api';
 
 const endpoint = 'workouts';
-const exampleUrl = `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/${endpoint}`;
+const exampleUrl = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/workouts`
+  : 'http://localhost:8000/api/workouts';
 
 function Workouts() {
   const [workouts, setWorkouts] = useState([]);
